@@ -1,1 +1,1 @@
-# college-elecyion-system-master
+# college-election-system-master
