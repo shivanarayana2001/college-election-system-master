@@ -27,7 +27,7 @@ public class candidateInsert extends HttpServlet{
 				String contestant_id=session.getAttribute("userId").toString();
 				//out.println(name+"  "+branch+"  "+age+"  "+category+"  "+agenda+"  "+contestant_id);
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","Mantravadi@1234");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
 				String sq="INSERT INTO contestant values(?,?,?,?,?,?,?)";
 				PreparedStatement ps=con.prepareStatement(sq);
 				ps.setString(1, contestant_id);
