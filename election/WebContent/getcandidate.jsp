@@ -61,7 +61,7 @@ tr:nth-child(even) {
     <%
     session.setAttribute("voteforsports", "yes");
     Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","Mantravadi@1234");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
 	Statement s=con.createStatement();
 	ResultSet rs=s.executeQuery("select * from contestant order by category asc");
 	while(rs.next())
