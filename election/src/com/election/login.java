@@ -22,7 +22,7 @@ public class login extends HttpServlet{
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","Mantravadi@1234");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
 		//checking whether the user is admin or not
 		boolean admin=false;
 		
