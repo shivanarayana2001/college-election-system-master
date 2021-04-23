@@ -20,7 +20,7 @@ public class sendmail extends HttpServlet{
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException
 	{	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","Mantravadi@1234");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
 		java.sql.Statement as= con.createStatement();
 		ResultSet ars=as.executeQuery("select userId from user");
 		String EmailId=request.getParameter("collegeId");
@@ -45,8 +45,8 @@ public class sendmail extends HttpServlet{
 		String subject="OTP for KL students elections";
 		String message="hey your OTP is "+otp;
 		//senders id
-		String from="universityelection90138226@gmail.com";
-		String pass="190330090138226";
+		String from="yourmail@gmail.com";
+		String pass="password for above from variabled gmail";
 		// Defining the gmail host
 
 	    String host = "smtp.gmail.com";
