@@ -17,11 +17,10 @@ if(session.getAttribute("userId")==null)
 <title>Insert title here</title>
 </head>
 <body>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*,com.election.*" %>
 <%
-Class.forName("com.mysql.jdbc.Driver");
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
-PreparedStatement ps=con.prepareStatement("insert into user(userId,name,emailId) values(?,?,?);");
+Connection con=GetDBObject.CAPI();
+PreparedStatement ps=con.prepareStatement("insert into students(userId,name,emailId) values(?,?,?);");
 String id=request.getParameter("userId").toString();
 String name=request.getParameter("name").toString();
 String emailId=request.getParameter("emailId").toString();

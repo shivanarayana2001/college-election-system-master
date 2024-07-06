@@ -20,9 +20,9 @@ public class sendmail extends HttpServlet{
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException
 	{	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
+		Connection con=GetDBObject.CAPI();
 		java.sql.Statement as= con.createStatement();
-		ResultSet ars=as.executeQuery("select userId from user");
+		ResultSet ars=as.executeQuery("select userId from students");
 		String EmailId=request.getParameter("collegeId");
 		boolean boo=false;
 		while(ars.next())

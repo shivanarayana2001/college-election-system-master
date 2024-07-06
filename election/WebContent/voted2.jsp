@@ -16,10 +16,9 @@ if(session.getAttribute("userId")==null)
 <title>Insert title here</title>
 </head>
 <body>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*,com.election.*" %>
 <%
-Class.forName("com.mysql.jdbc.Driver");
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
+Connection con=GetDBObject.CAPI();
 Statement s=con.createStatement();
 String iid=session.getAttribute("userId").toString();
 int a=Integer.parseInt(session.getAttribute("culturalvote").toString());

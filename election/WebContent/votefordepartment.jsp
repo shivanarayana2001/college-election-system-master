@@ -87,7 +87,7 @@ font-family: cursive;
 <title>Insert title here</title>
 </head>
 <body style="background-color:darkslategrey;">
-<%@ page import="java.util.*,java.sql.*" %>
+<%@ page import="java.util.*,java.sql.*,com.election.*" %>
 <table>
   <tr>
     <th>ID</th>
@@ -99,10 +99,10 @@ font-family: cursive;
    </tr>
     <%
     session.setAttribute("votefordepartment", "yes");
-    Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
-	Statement s=con.createStatement();
-	ResultSet rs=s.executeQuery("select * from contestant where category=\"department\"");
+    Connection con=GetDBObject.CAPI();
+    Statement s=con.createStatement();
+    String qq="select * from contestant where category=\'department\'";
+	ResultSet rs=s.executeQuery(qq);
 	while(rs.next())
 	{
 		out.println("<tr><td>"+rs.getString("contestant_id")+"</td><td>"+rs.getString("name")+"</td><td>"+rs.getInt("age")+"</td><td>"+rs.getString("branch")+"</td><td>"+rs.getString("category")+"</td><td>"+rs.getString("agenda")+"</tr>");
