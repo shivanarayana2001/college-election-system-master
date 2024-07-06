@@ -20,9 +20,8 @@ public class login extends HttpServlet{
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 	try {
 		String userId=request.getParameter("userId");
-		String password=request.getParameter("password");
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
+		String password=request.getParameter("password");;
+		Connection con=GetDBObject.CAPI();
 		//checking whether the user is admin or not
 		boolean admin=false;
 		
@@ -46,7 +45,7 @@ public class login extends HttpServlet{
 		
 		
 		Statement s=con.createStatement();
-		String ss="select * from user";
+		String ss="select * from students";
 		ResultSet rs= s.executeQuery(ss);
 		boolean gotit=false;
 		PrintWriter out=response.getWriter();

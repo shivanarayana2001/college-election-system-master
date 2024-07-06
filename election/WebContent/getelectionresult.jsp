@@ -50,7 +50,7 @@ tr:nth-child(even) {
 <title>election result</title>
 </head>
 <body style="background-color:darkslategrey;">
-<%@ page import="java.util.*,java.sql.*" %>
+<%@ page import="java.util.*,java.sql.*,com.election.*" %>
 <table>
   <tr>
     <th>ID</th>
@@ -62,8 +62,7 @@ tr:nth-child(even) {
     <th>votes</th>
    </tr>
     <%
-    Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
+    Connection con=GetDBObject.CAPI();
 	Statement s=con.createStatement();
 	ResultSet rs=s.executeQuery("select * from contestant order by category desc");
 	while(rs.next())

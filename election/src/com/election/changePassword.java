@@ -25,9 +25,9 @@ public class changePassword extends HttpServlet {
 			String oldPassword=request.getParameter("oldPassword");
 			String newPassword=request.getParameter("newPassword");
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/election","root","password");
+			Connection con=GetDBObject.CAPI();
 			Statement as=con.createStatement();
-			ResultSet ars=as.executeQuery("select * from user");
+			ResultSet ars=as.executeQuery("select * from students");
 			int flag=0;
 			while(ars.next())
 			{
@@ -35,7 +35,7 @@ public class changePassword extends HttpServlet {
 				{
 					HttpSession session= request.getSession();
 					String user_id =session.getAttribute("userId").toString();
-					PreparedStatement ps=con.prepareStatement("update user "+"set password =\'"+newPassword+"\'where userId = \'"+user_id+"\'");
+					PreparedStatement ps=con.prepareStatement("update students "+"set password =\'"+newPassword+"\'where userId = \'"+user_id+"\'");
 					flag=ps.executeUpdate();
 					if(flag!=0)
 					{
