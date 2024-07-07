@@ -25,7 +25,7 @@ public class changePassword extends HttpServlet {
 			String oldPassword=request.getParameter("oldPassword");
 			String newPassword=request.getParameter("newPassword");
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con=GetDBObject.CAPI();
+			Connection con=GetDBObject.CAPI(getServletContext());
 			Statement as=con.createStatement();
 			ResultSet ars=as.executeQuery("select * from students");
 			int flag=0;

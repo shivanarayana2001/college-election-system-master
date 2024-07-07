@@ -61,7 +61,7 @@ tr:nth-child(even) {
     <%
     session.setAttribute("voteforsports", "yes");
     Class.forName("com.mysql.jdbc.Driver");
-    Connection con=GetDBObject.CAPI();
+    Connection con=GetDBObject.CAPI(getServletContext());;
 	Statement s=con.createStatement();
 	ResultSet rs=s.executeQuery("select * from contestant order by category asc");
 	while(rs.next())

@@ -99,7 +99,7 @@ font-family: cursive;
    </tr>
     <%
     session.setAttribute("votefordepartment", "yes");
-    Connection con=GetDBObject.CAPI();
+    Connection con=GetDBObject.CAPI(getServletContext());;
     Statement s=con.createStatement();
     String qq="select * from contestant where category=\'department\'";
 	ResultSet rs=s.executeQuery(qq);

@@ -26,7 +26,7 @@ public class candidateInsert extends HttpServlet{
 				String agenda=request.getParameter("agenda");
 				String contestant_id=session.getAttribute("userId").toString();
 				//out.println(name+"  "+branch+"  "+age+"  "+category+"  "+agenda+"  "+contestant_id);
-				Connection con=GetDBObject.CAPI();
+				Connection con=GetDBObject.CAPI(getServletContext());
 				String sq="INSERT INTO contestant values(?,?,?,?,?,?,?)";
 				PreparedStatement ps=con.prepareStatement(sq);
 				ps.setString(1, contestant_id);
@@ -47,9 +47,6 @@ public class candidateInsert extends HttpServlet{
 					out.print("<a href='home.jsp'>click here to go to home page</a>");
 				}
 			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
 			PrintWriter out=response.getWriter();
 			out.print("<h1>you have already enrolled/contesting in any cateogry of election so you can\'t participate</h1>");
