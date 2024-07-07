@@ -21,7 +21,7 @@ public class login extends HttpServlet{
 	try {
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");;
-		Connection con=GetDBObject.CAPI();
+		Connection con=GetDBObject.CAPI(getServletContext());
 		//checking whether the user is admin or not
 		boolean admin=false;
 		

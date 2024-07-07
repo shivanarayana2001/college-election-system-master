@@ -18,7 +18,7 @@ if(session.getAttribute("userId")==null)
 <body>
 <%@ page import="java.sql.*,com.election.*" %>
 <%
-Connection con=GetDBObject.CAPI();
+Connection con=GetDBObject.CAPI(getServletContext());;
 Statement s=con.createStatement();
 String iid=session.getAttribute("userId").toString();
 int a=Integer.parseInt(session.getAttribute("technicalvote").toString());

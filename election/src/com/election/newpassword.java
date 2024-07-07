@@ -34,7 +34,7 @@ public class newpassword extends HttpServlet {
 		try {
 			String newPassword=request.getParameter("newPassword");
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con=GetDBObject.CAPI();
+			Connection con=GetDBObject.CAPI(getServletContext());
 			String emid=session.getAttribute("email").toString();
 			PreparedStatement ps=con.prepareStatement("update students set password = \'"+newPassword+"\' where emailId=\'"+emid+"\'");
 			int k=ps.executeUpdate();

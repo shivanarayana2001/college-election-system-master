@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBDetails>
+	<!-- database type mysql/postgres -->
+	<database-name id="name">
+		mysql
+	</database-name>
+
+
+
+	<!-- database driver mysql/postgres -->
+	<database-driver id="driver">
+		com.mysql.cj.jdbc.Driver
+	</database-driver>
+
+
+
+	<!-- database connection url -->
+	<url id="url">
+		jdbc:mysql://localhost:3306/
+	</url>
+
+
+
+	<!-- user name -->
+	<user id="user">
+		root
+	</user>
+
+
+
+	<!-- db password -->
+	<password id="password">
+		root
+	</password>
+
+
+
+	<!-- databaseschema name -->
+	<database id="database">
+		test
+	</database>
+</DBDetails>

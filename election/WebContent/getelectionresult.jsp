@@ -62,7 +62,7 @@ tr:nth-child(even) {
     <th>votes</th>
    </tr>
     <%
-    Connection con=GetDBObject.CAPI();
+    Connection con=GetDBObject.CAPI(getServletContext());;
 	Statement s=con.createStatement();
 	ResultSet rs=s.executeQuery("select * from contestant order by category desc");
 	while(rs.next())

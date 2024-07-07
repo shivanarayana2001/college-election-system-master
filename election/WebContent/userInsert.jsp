@@ -19,7 +19,7 @@ if(session.getAttribute("userId")==null)
 <body>
 <%@ page import="java.sql.*,com.election.*" %>
 <%
-Connection con=GetDBObject.CAPI();
+Connection con=GetDBObject.CAPI(getServletContext());
 PreparedStatement ps=con.prepareStatement("insert into students(userId,name,emailId) values(?,?,?);");
 String id=request.getParameter("userId").toString();
 String name=request.getParameter("name").toString();
